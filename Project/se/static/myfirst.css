@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@300;400;500;700&family=Poppins:wght@200&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.home{
+  height: 110vh;
+  overflow: hidden;
+}
+.home img{
+  width: 100%;
+  height: 111vh;
+}
+.navbar{
+  background-color: #1D1E22;
+  padding: 0;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.navhead{
+  display: flex;
+}
+.navhead h3{
+  font-size: 25px;
+  padding: 15px 30px;
+}
+.navlinks{
+  margin-right: 70px;
+  display: inline-flex;
+}
+.navlinks a{
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 15px 20px;
+}
+.navlinks a:hover{
+  background-color: white;
+  color: black;
+}
+
+.title{
+  position: absolute;
+  top: 40vh;
+}
+.home h1{
+
+}
+.home h1,h2{
+  margin-left: 100px;
+  margin-bottom: 0;
+  color: white;
+  font-family: "Alliance1","Alliance1HeaderFallback",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-feature-settings: unset;
+  display: block;
+  font-size: 100px;
+  font-weight: bold;
+}
+.home h2{
+  margin-top: -40px;
+}
+
+ .quick-subscribe {
+  margin-top: 20px;
+  margin-left: 100px;
+   position: relative;
+   background: #fff;
+   border-radius: 2rem;
+   box-shadow: 0 1rem 1rem rgba(124, 126, 130, .05);
+   transition: max-width 0.3s ease;
+   width: 100%;
+   max-width: 13.75rem;
+}
+ .quick-subscribe #subscribe-input, .quick-subscribe .subscribe-sent, .quick-subscribe button {
+   font-family: 'Gothic A1';
+   padding: 0.7rem 2rem 1rem;
+   border: 0;
+}
+ .quick-subscribe #subscribe-input:focus, .quick-subscribe .subscribe-sent:focus, .quick-subscribe button:focus {
+   outline: 0;
+}
+.quick-subscribe input{
+  font-size: 22px;
+}
+ .quick-subscribe button {
+  color: black;
+  font-size: 22px;
+   font-weight: 700;
+   cursor: pointer;
+}
+ .quick-subscribe .subscribe-field {
+   visibility: hidden;
+   opacity: 0;
+   transition: all 0.3s ease;
+   position: relative;
+}
+ .quick-subscribe .subscribe-field #subscribe-input {
+   width: 100%;
+   background: none;
+}
+ .quick-subscribe .subscribe-field label {
+   font-family: 'Gothic A1';
+   color: #bdbec0;
+   position: absolute;
+   left: 2rem;
+   top: 1rem;
+   visibility: hidden;
+   opacity: 0;
+   transition: all 0.3s 0.3s ease;
+   transform: scale(0);
+   cursor: text;
+}
+ .quick-subscribe .subscribe-button, .quick-subscribe .subscribe-sent {
+   background: none;
+   color: #7c7e82;
+   display: inline-block;
+   width: 100%;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   margin: 0 auto;
+   text-align: center;
+   transition: all 0.3s ease;
+}
+ .quick-subscribe .subscribe-submit {
+   background: #7c7e82;
+   color: #fff;
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
+   position: absolute;
+   border-radius: 2rem;
+   top: 0.3rem;
+   right: 0.5rem;
+   z-index: 5;
+   visibility: hidden;
+   opacity: 0;
+   transition: all 0.3s 0.2s ease;
+   transform: scale(0);
+}
+ .quick-subscribe .subscribe-sent {
+  font-size: 22px;
+   font-weight: 700;
+   visibility: hidden;
+   text-align: left;
+   opacity: 0;
+   transition: all 0.3s 0.2s ease;
+}
+
+ .quick-subscribe.show-field {
+   max-width: 27.5rem;
+}
+ .quick-subscribe.show-field .subscribe-field {
+   opacity: 1;
+   visibility: visible;
+}
+ .quick-subscribe.show-field .subscribe-field label {
+   opacity: 1;
+   visibility: visible;
+   transform: scale(1);
+   transition-delay: 0s;
+}
+ .quick-subscribe.show-field .subscribe-field.has-value label {
+   opacity: 0;
+   visibility: hidden;
+}
+ .quick-subscribe.show-field .subscribe-button {
+   visibility: hidden;
+   opacity: 0;
+}
+ .quick-subscribe.show-field .subscribe-submit {
+   visibility: visible;
+   opacity: 1;
+   transform: scale(1);
+}
+ .quick-subscribe.submitted .subscribe-button {
+   display: none;
+}
+ .quick-subscribe.submitted .subscribe-submit {
+   transition-delay: 0s;
+}
+ .quick-subscribe.submitted .subscribe-sent {
+   visibility: visible;
+   opacity: 1;
+}
+.ps0{
+  padding: 40px;
+  background: ;
+}
+.ps11 h1{
+  font-size: 50px;
+}
+.ps12{
+  display: flex;
+}
+.ps121{
+  width: 310px;
+  height: 480px;
+  }
+.ps1212{
+  padding-left: 10px;
+  width: 100%;
+}
+.ps13,.ps133{
+  font-weight: bold;
+}
+.ps15 button{
+    background-color: grey !important;
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.ps121 img{
+  width: 310px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.ps13,.ps133,.ps141,.ps142,.ps143,.ps144,.ps145{
+  display: flex;
+}
+.ps14{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+.ps1 p{
+  padding: 10px;
+  font-size: 25px;
+}
+
+iframe{
+  width: 100% !important;
+  height: 100% !important;
+}
+---------------------------------------------------------------------------------
+
+.ps16{
+  display: flex;
+  flex-direction: column;
+}
+
+
+

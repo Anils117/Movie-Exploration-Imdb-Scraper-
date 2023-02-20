@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Photos</title>
+	<link rel="stylesheet" href="{% static 'myfirst.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/1.0.0/css/font-awesome.css" integrity="sha512-YX9NLok9RLg+o5JkA2Whp1kPDCBCEUolTyYykJVOe1xcaTNebXU/x02TxV0LpVYqVNJV5NVjyoMW0jHnJWICKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style type="text/css">
+	.gallery{
+	}
+	.gal{
+	  display: flex;
+	  flex-wrap: wrap;
+	}
+
+	.gallery img{
+	  max-width: 1000px;
+	  max-height: 500px;
+	  border-radius: 20px;
+	  margin: 5px;
+	}
+	</style>
+</head>
+<body>
+
+<div class="gallery" style="background:#1D1E22;padding: 50px;">
+	<div class="gal">
+	{%  for i in piclist %}
+		<img src={{i}}>
+	{% endfor %}
+	</div>
+</div>
+
+</body>
+</html>
+
+<!-- 
+<img
+      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Waves at Sea"
+    /> -->

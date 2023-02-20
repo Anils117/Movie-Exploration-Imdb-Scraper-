@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{newdata.name}}</title>
+	<link rel="stylesheet" href="{% static 'myfirst.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/1.0.0/css/font-awesome.css" integrity="sha512-YX9NLok9RLg+o5JkA2Whp1kPDCBCEUolTyYykJVOe1xcaTNebXU/x02TxV0LpVYqVNJV5NVjyoMW0jHnJWICKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+</head>
+<style>
+
+	body{
+		background: linear-gradient(109.6deg,rgb(36,45,57)11.2%,rgb(16,37,60)51.2%,rgb(0,0,0)98.6%);
+
+	}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+nav {
+	position: relative;
+	width:100%;
+}
+nav ul {
+	text-align: left;
+	color: white;
+	width: 100%;
+	font-size: 18px;
+	border: none;
+	cursor: pointer;
+	list-style: none;
+	
+}
+nav ul li ul li {
+  padding-left: 50px;
+}
+nav ul li a {
+	font-weight: bold;
+	display: block;
+	padding: 10px 15px;
+	color: white;
+	text-decoration: none;
+	-webkit-transition: 0.2s linear;
+	-moz-transition: 0.2s linear;
+	-ms-transition: 0.2s linear;
+	-o-transition: 0.2s linear;
+	transition: 0.2s linear;
+}
+nav ul li{
+	background-color: grey !important;
+	margin-bottom: 10px !important;
+}
+nav ul li a .fa {
+	width: 16px;
+	text-align: center;
+	margin-right: 5px;
+	float:right;
+}
+nav ul ul {
+	background-color:;
+}
+.ps15{
+	background-color: grey !important;
+	margin-bottom: 10px;
+}
+</style>
+<body>
+<div class="navbar">
+	<div class="navhead">
+		<h3>Movie Exploration</h3>
+	</div>
+	<div class="navlinks">
+		<a href="{% url 'movies' %}">Home</a>
+	</div>
+</div>
+<div class="ps0" style="color: white;">
+	<div class="ps1">
+		<div class="ps11">
+			<h1 id="search">{{newdata.name}}</h1>
+		</div>
+		<div class="ps12">
+			<div class="ps121">
+				<img src={{newdata.image}}>
+			</div>
+			<div class="ps1212" id="videos">
+				
+			</div>
+		</div>
+		<div class="ps13">
+			<p>Genre : </p>
+			{% for i in newdata.genre %}
+			    <p>{{ i }}</p>
+			{% endfor %}
+		</div>
+		<div class="ps14">
+			<div class="ps141">
+				<p>Release Date : {{ newdata.date }}</p><br>
+			</div>
+			<div class="ps142">
+				<p>Duration : {% for i in newdata.duration %}
+												{{i}}
+											{% endfor %}
+				</p><br>
+			</div>
+			<div class="ps143">
+				<p>Rating : {{ newdata.rating }} <span class="material-symbols-outlined">
+star
+</span></p><br>
+			</div>
+			<div class="ps144">
+				<p>Gross : {{ newdata.Gross }}</p><br>
+			</div>
+			<div class="ps145">
+				<p>Story Line : {{ newdata.summary }}</p>
+			</div>
+			<div class="ps133">
+			<p>Keywords : </p>
+			{% for i in newdata.keywords %}
+			    <p>{{ i }}</p>
+			{% endfor %}
+		</div>
+		</div>
+		<div class="ps15">
+			<form action="{% url 'photos' %}" method="GET">
+				{% csrf_token %}
+				<input type='hidden' name='photoslink' value= {{newdata.photos}}>
+				<button type="submit" formtarget="_blank">Photos</button>
+			</form>
+		</div>
+		<nav class='animated bounceInDown'>
+		<ul>
+			<li class='sub-menu'><a href='#settings'>Top Cast<div class='fa fa-caret-down right'></div></a>
+				<ul>
+					{% for key, value in newdata.topcast.items %}
+					  <li>{{ key }} : {{ value }}</li>
+					{% endfor %}
+				</ul>
+			</li>
+			<li class='sub-menu'><a href='#settings'>Reviews<div class='fa fa-caret-down right'></div></a>
+				<ul>
+					{% for i in newdata.reviews %}
+						{% for key, value in i.items %}
+						  <li>{{ key }} : {{ value }}</li>
+						{% endfor %}
+					{% endfor %}
+				</ul>
+			</li>
+			<li class='sub-menu'><a href='#message'>Direction Credits<div class='fa fa-caret-down right'></div></a>
+				<ul>
+					{% for key in newdata.direction %}
+						{% for i in key %}
+					  		<li>{{ i }}</li>
+						{% endfor %}
+					{% endfor %}
+				</ul>
+			</li>
+			<li class='sub-menu'><a href='#message'>Production Credits<div class='fa fa-caret-down right'></div></a>
+				<ul>
+					{% for key, value in newdata.production.items %}
+					  <li>{{ key }} : {{ value }}</li>
+					{% endfor %}
+				</ul>
+			</li>
+			<li class='sub-menu'><a href='#message'>Writing Credits<div class='fa fa-caret-down right'></div></a>
+				<ul>
+					{% for key in newdata.writing %}
+						{% for i in key %}
+					  		<li>{{ i }}</li>
+						{% endfor %}
+					{% endfor %}
+				</ul>
+			</li>
+			<li class='sub-menu'><a href='#message'>Music<div class='fa fa-caret-down right'></div></a>
+				<ul>
+					{% for key in newdata.music %}
+						{% for i in key %}
+					  		<li>{{ i }}</li>
+						{% endfor %}
+					{% endfor %}
+				</ul>
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	function loadFunction(){
+		var API_KEY = "YOUR YOUTUBE API_KEY"
+		let search = document.getElementById("search").innerText
+		var video = ''
+		search = search + " trailer"
+		videoSearch(API_KEY,search,1)
+		function videoSearch(key,search,maxres){
+			$.get("https://www.googleapis.com/youtube/v3/search?key="+key+"&type=video&part=snippet&maxResults="+maxres+"&q="+search,function(data){
+				console.log(data)
+				data.items.forEach(item => {
+					video = `<iframe width="420px" height="315px" src="http://youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen</iframe>`
+
+					$("#videos").append(video)
+					
+				});
+			})
+		}
+	}
+	window.onload = loadFunction();
+</script>
+<script>
+	$('.sub-menu ul').hide();
+$(".sub-menu a").click(function () {
+	$(this).parent(".sub-menu").children("ul").slideToggle("100");
+	$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+});
+</script>
+</html>

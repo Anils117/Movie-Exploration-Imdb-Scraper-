@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Movie Expo</title>
+	<link rel="stylesheet" href="{% static 'myfirst.css' %}">
+</head>
+<body>
+<div class="wrapper">
+	<div class="navbar">
+		<div class="navhead">
+			<h3>Movie Exploration</h3>
+		</div>
+	</div>
+	<div class="home">
+		<img src="{% static 'home.jpg' %}"/>
+		<div class="title">
+			<h1>Movie</h1>
+			<h2>Exploration !!</h2>
+			<form class="quick-subscribe" action="{% url 'home' %}" method="POST">
+				{% csrf_token %}
+			  <div class="subscribe-field">
+			    <label for="subscribe-input">Enter Movie Name</label>
+			    <input type="text" name="title" id="subscribe-input" required />
+			  </div>
+			  <button class="subscribe-button">Let's Explore</button>
+			  <div class="subscribe-sent">Please wait..!</div>
+			  <button type="submit" class="subscribe-submit">Send</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	/**
+ * Quick Subscribe Class
+ */
+class QuickSubscribe {
+  constructor(element) {
+    this._element = element;
+    this._button = element.querySelector('.subscribe-button');
+    this._field = element.querySelector('.subscribe-field');
+    this._input = element.querySelector('#subscribe-input');
+    
+    this._bindEventListeners();
+  }
+  
+  _bindEventListeners() {
+    this._element.addEventListener('submit', (e) => {
+      
+      this._submit();
+    });
+    
+    this._button.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      this._showField();
+    });
+    
+    this._input.addEventListener('focus', (e) => {
+      this._inputFocused(true);  
+    });
+    
+    this._input.addEventListener('blur', (e) => {
+      this._inputFocused(false);  
+    });
+    
+    this._input.addEventListener('input', (e) => {
+      this._inputHandleInput();  
+    });
+  }
+  
+  _showField() {
+    this._element.classList.add('show-field');
+  }
+  
+  _hideField() {
+    this._element.classList.remove('show-field'); 
+  }
+  
+  _submit() {
+    this._element.classList.add('submitted');
+    this._hideField();
+  }
+  
+  _inputFocused(focused = true) {
+    this._field.classList.toggle('focused', focused);
+  }
+  
+  _inputHandleInput() {
+    this._field.classList.toggle('has-value', this._input.value.length > 0);  
+  }
+}
+  
+new QuickSubscribe(document.querySelector('.quick-subscribe'));
+</script>
+</body>
+</html>
+<!-- 
+<form action="" method="post">{% csrf_token %}
+	<input name="title" class="form-control" type="text" placeholder="Search" aria-label="Search">
+	<button class="btn btn-success" type="submit">Submit</button>
+	</form>
+	{{newdic}} -->
